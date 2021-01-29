@@ -1,4 +1,4 @@
-package mc.simon.hahota.fun.tree.sql;
+package me.simon.hahota.fun.tree.sql;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -9,9 +9,9 @@ public class MySQL {
 	
 	private String host = "localhost";//edit these
 	private String port = "3306"; // port
-	private String database = "economy"; // db name
+	private String database = "test"; // db name
 	private String username = "root"; //name
-	private String password = "pass"; //passworld
+	private String password = "password"; //passworld
 	
 	private java.sql.Connection connection;
 	

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import mc.simon.hahota.fun.tree.sql.MySQL;
+import me.simon.hahota.fun.tree.sql.MySQL;
 
 public class Main extends JavaPlugin {
 
@@ -14,7 +14,9 @@ public class Main extends JavaPlugin {
     public MySQL SQL;
 
 	@Override
-    public void onEnable()  {
+    public void onEnable() 	{
+	this.getConfig().options().copyDefaults();
+	saveDefaultConfig();
     	this.SQL = new MySQL();
     	
     	try  { 	

@@ -1,4 +1,5 @@
-main: mc.simon.hahota.fun.tree.Main
+main: me.simon.hahota.fun.tree.Main
 name: HahotaEconomy
 version: 0.1
 author: Simon
+api-version: 1.16
