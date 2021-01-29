@@ -1,26 +1,38 @@
 package me.simon.hahota.fun.tree;
 
+
+import java.sql.SQLException;
+
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.mysql.jdbc.Connection;
+import mc.simon.hahota.fun.tree.sql.MySQL;
 
 public class Main extends JavaPlugin {
-	
-    String host, port, database, username, password;
-    static Connection connection;
+
  
-    @Override
-    public void onEnable() {  
-        host = "localhost";
-        port = "3306";
-        database = "TestDatabase";
-        username = "user";
-        password = "pass";    
+    public MySQL SQL;
+
+	@Override
+    public void onEnable()  {
+    	this.SQL = new MySQL();
+    	
+    	try  { 	
+    		SQL.connect();
+  } catch (ClassNotFoundException | SQLException e) {
+	  // e.printStackTrace();  
+	  Bukkit.getLogger().info("Wrong credentials");
+	  }
+    	
+    if (SQL.isConnected()) {
+    	Bukkit.getLogger().info("Suxessfully connected");
     }
- 
-    @Override
+    	
+    			
+	}
+
+	@Override
     public void onDisable() {
     }
-
 
 }
