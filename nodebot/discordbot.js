@@ -14,8 +14,8 @@ client.on("message", (message) => {
   } else
   if (message.content.startsWith(prefix + "nou")) {
     message.channel.send("bar!");
-  } else
-})  
+  }  
+});
 
 var con = mysql.createConnection({
   host: "localhost",
