@@ -14,4 +14,5 @@ To run the bot you need to create a config.json file in the root folder of the b
 ```
 
 Open a terminal, and run ```npm install``` in the root folder of the bot.
+
 The bot requires Node.JS version ```15``` and npm ```7.0.2``` to run.
