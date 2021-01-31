@@ -1,7 +1,7 @@
 # HahotaEconomy
 Discord &lt;-> Vault/Essentials sync with MySQL integration using Node.JS and Java.
 
-To run the bot you need to create a config.json file in the root folder of the bot, and add the following format:
+To run the bot you need to create a config.json file in the root folder of the bot:
 
 ```
 {
@@ -12,3 +12,6 @@ To run the bot you need to create a config.json file in the root folder of the b
 "database": "yourdb"
 }
 ```
+
+Open a terminal, and run ```npm install``` in the root folder of the bot.
+The bot requires Node.JS version ```15``` and npm ```7.0.2``` to run.
