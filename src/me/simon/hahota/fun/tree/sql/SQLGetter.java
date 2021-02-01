@@ -63,4 +63,12 @@ public class SQLGetter {
 		}
 		return false;	
 }
+	public void addPoints(UUID uuid, int points) {
+		try {
+			PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("UPDATE discord-id SET POINTS=? WHERE UUID=?");
+			ps.setInt(1, points);
+		} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	}	
 }
