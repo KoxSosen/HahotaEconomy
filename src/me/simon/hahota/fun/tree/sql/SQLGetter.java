@@ -1,7 +1,11 @@
 package me.simon.hahota.fun.tree.sql;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.UUID;
+
+import org.bukkit.entity.Player;
 
 import me.simon.hahota.fun.tree.Main;
 
@@ -24,5 +28,16 @@ public class SQLGetter {
 		}
 		
 	}
- 
+	
+	public void createPlayer(Player player) {
+		try {
+			UUID uuid = player.getUniqueId();
+			PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT * from discord_ids where UUID=?");
+			ps.setString(1,uuid.toString());
+			ResultSet results = ps.executeQuery();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+	}
+	} 
 }
