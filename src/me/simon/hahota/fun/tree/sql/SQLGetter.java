@@ -66,14 +66,27 @@ public class SQLGetter {
 	public void addPoints(UUID uuid, int points) {
 		try {
 			PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("UPDATE discord-id SET POINTS=? WHERE UUID=?");
-			ps.setInt(1, points);
+			ps.setInt(1, (getPoints(uuid) + points));
 			ps.setString(2, uuid.toString());
 			ps.executeUpdate();
 		} catch (SQLException e) {
 		e.printStackTrace();
-	}
 	}	
-	
-	
-	
+}	
+	public int getPoints(UUID uuid) {
+		try {
+			PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT POINTS FROM discord_id WHERE UUUID=?");
+			ps.setString(1, uuid.toString());
+			ResultSet rs = ps.executeQuery();
+			int points = 0;
+			if (rs.next()) {
+				points = rs.getInt("POINTS");
+				return points;
+			}
+		} catch (SQLException e) {
+		e.printStackTrace();
+		}
+	return 0;
+	}
 }
+	
