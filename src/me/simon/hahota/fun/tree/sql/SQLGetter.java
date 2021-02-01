@@ -39,6 +39,12 @@ public class SQLGetter {
 			if (!exists(uuid)) {
 				PreparedStatement ps2 = plugin.SQL.getConnection().prepareStatement("INSERT IGNORE INFO discord_id"
 						+ "(NAME,UUID VALUES (?,?)");
+				ps2.setString(1, player.getName());
+				ps2.setString(2, uuid.toString());
+				ps2.executeUpdate();
+				
+				return;
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
