@@ -35,7 +35,11 @@ public class SQLGetter {
 			PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT * from discord_ids where UUID=?");
 			ps.setString(1,uuid.toString());
 			ResultSet results = ps.executeQuery();
-			
+			results.next();
+			if (!exists(uuid)) {
+				PreparedStatement ps2 = plugin.SQL.getConnection().prepareStatement("INSERT IGNORE INFO discord_id"
+						+ "(NAME,UUID VALUES (?,?)");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 	}
@@ -48,12 +52,13 @@ public class SQLGetter {
 		ps.setString(1,uuid.toString());
 		ResultSet results = ps.executeQuery();
 		if (results.next()) {
+			// found player do nothing lool
 			return true;
 		}
 		  return false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return false;	
 }
 }
