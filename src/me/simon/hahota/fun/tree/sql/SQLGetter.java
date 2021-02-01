@@ -32,10 +32,6 @@ public class SQLGetter {
 	public void createPlayer(Player player) {
 		try {
 			UUID uuid = player.getUniqueId();
-			PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT * from discord_ids where UUID=?");
-			ps.setString(1,uuid.toString());
-			ResultSet results = ps.executeQuery();
-			results.next();
 			if (!exists(uuid)) {
 				PreparedStatement ps2 = plugin.SQL.getConnection().prepareStatement("INSERT IGNORE INFO discord_id"
 						+ "(NAME,UUID VALUES (?,?)");
