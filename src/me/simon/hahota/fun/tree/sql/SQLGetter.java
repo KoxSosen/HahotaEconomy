@@ -39,5 +39,21 @@ public class SQLGetter {
 		} catch (SQLException e) {
 			e.printStackTrace();
 	}
-	} 
+	}
+	
+	
+	public boolean exists(UUID uuid) {
+		try {
+		PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT * from discord_ids where UUID=?");
+		ps.setString(1,uuid.toString());
+		ResultSet results = ps.executeQuery();
+		if (results.next()) {
+			return true;
+		}
+		  return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+}
 }
